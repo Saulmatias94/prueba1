@@ -27,5 +27,12 @@ public class Funciones {
         return 0;
 
     }
-
+    public static int FoursFivesSixes(int [] dice, int x){
+        int sum = 0;
+        int i;
+        for (i = 0; i < dice.length; i++)
+            if (dice[i] == x)
+                sum = sum + x;
+        return sum;
+    }
 }
