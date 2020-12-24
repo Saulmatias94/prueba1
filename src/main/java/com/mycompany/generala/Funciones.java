@@ -12,18 +12,12 @@ public class Funciones {
     }
 
     public static int SmallLargue(int d1, int d2, int d3, int d4, int d5, int punto, int x) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1 - 1] += 1;
-        tallies[d2 - 1] += 1;
-        tallies[d3 - 1] += 1;
-        tallies[d4 - 1] += 1;
-        tallies[d5 - 1] += 1;
-        if (tallies[x] == 1 &&
-                tallies[x + 1] == 1 &&
-                tallies[x + 2] == 1 &&
-                tallies[x + 3] == 1 &&
-                tallies[x + 4] == 1)
+
+        if (array(d1, d2, d3, d4, d5)[x] == 1 &&
+                array(d1, d2, d3, d4, d5)[x+1] == 1 &&
+                array(d1, d2, d3, d4, d5)[x+2] == 1 &&
+                array(d1, d2, d3, d4, d5)[x+3] == 1 &&
+                array(d1, d2, d3, d4, d5)[x + 4] == 1)
             return punto;
         return 0;
 
@@ -39,14 +33,9 @@ public class Funciones {
     }
 
     public static int ThreeFourKind(int d1, int d2, int d3, int d4, int d5, int x) {
-        int[] t = new int[6];
-        t[d1 - 1]++;
-        t[d2 - 1]++;
-        t[d3 - 1]++;
-        t[d4 - 1]++;
-        t[d5 - 1]++;
+
         for (int i = 0; i < 6; i++)
-            if (t[i] >= x)
+            if (array(d1, d2, d3, d4, d5)[i] >= x)
                 return (i + 1) * x;
         return 0;
 
