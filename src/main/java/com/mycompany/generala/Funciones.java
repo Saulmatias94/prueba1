@@ -35,4 +35,18 @@ public class Funciones {
                 sum = sum + x;
         return sum;
     }
+    public static int ThreeFourKind(int d1, int d2, int d3, int d4, int d5, int x){
+        int[] t=new int[6];
+        t[d1-1]++;
+        t[d2-1]++;
+        t[d3-1]++;
+        t[d4-1]++;
+        t[d5-1]++;
+        for (int i = 0; i < 6; i++)
+            if (t[i] >= x)
+                return (i+1) * x;
+        return 0;
+
+    }
+
 }
