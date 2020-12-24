@@ -83,31 +83,20 @@ public class Generala {
 
     public static int score_pair(int d1, int d2, int d3, int d4, int d5)
     {
-        int[] counts = new int[6];
-        counts[d1-1]++;
-        counts[d2-1]++;
-        counts[d3-1]++;
-        counts[d4-1]++;
-        counts[d5-1]++;
-        int at;
-        for (at = 0; at != 6; at++)
-            if (counts[6-at-1] >= 2)
+        Funciones f= new Funciones();
+        for (int at = 0; at != 6; at++)
+            if (f.array(d1, d2, d3, d4, d5)[6-at-1] >= 2)
                 return (6-at)*2;
         return 0;
     }
 
     public static int two_pair(int d1, int d2, int d3, int d4, int d5)
     {
-        int[] counts = new int[6];
-        counts[d1-1]++;
-        counts[d2-1]++;
-        counts[d3-1]++;
-        counts[d4-1]++;
-        counts[d5-1]++;
+        Funciones f= new Funciones();
         int n = 0;
         int score = 0;
         for (int i = 0; i < 6; i += 1)
-            if (counts[6-i-1] >= 2) {
+            if (f.array(d1, d2, d3, d4, d5)[6-i-1] >= 2) {
                 n++;
                 score += (6-i);
             }        
@@ -147,28 +136,23 @@ public class Generala {
 
     public static int fullHouse(int d1, int d2, int d3, int d4, int d5)
     {
-        int[] tallies;
+        int[] tallies= new int[6];
         boolean _2 = false;
         int i;
         int _2_at = 0;
         boolean _3 = false;
         int _3_at = 0;
 
-        tallies = new int[6];
-        tallies[d1-1] += 1;
-        tallies[d2-1] += 1;
-        tallies[d3-1] += 1;
-        tallies[d4-1] += 1;
-        tallies[d5-1] += 1;
+        Funciones f= new Funciones();
 
-        for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 2) {
+        for (i = 0; i != 6; i++)
+            if (f.array(d1, d2, d3, d4, d5)[i] == 2) {
                 _2 = true;
                 _2_at = i+1;
             }
 
         for (i = 0; i != 6; i += 1)
-            if (tallies[i] == 3) {
+            if (f.array(d1, d2, d3, d4, d5)[i] == 3) {
                 _3 = true;
                 _3_at = i+1;
             }
@@ -178,5 +162,7 @@ public class Generala {
         else
             return 0;
     }
+
+
 }
 
